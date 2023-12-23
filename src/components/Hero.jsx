@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState  } from "react";
 import { useNavigate } from "react-router-dom";
 // import Navbar from "./Navbar";
 // import Page from "./Page";
@@ -39,7 +39,22 @@ function Hero() {
     navigate("project");
   }
   
+  const downloadFile = () => {
+    const fileUrl = 'https://drive.google.com/file/d/1SqaWq798m3Fjfj20zdHNTIl6EI_682tH/view?usp=drive_link';
+    const fileName = 'downloadedFile.pdf';
 
+    // Create a hidden anchor element
+    const anchor = document.createElement('a');
+    anchor.href = fileUrl;
+    anchor.download = fileName;
+
+    // Append the anchor to the document and trigger the click event
+    document.body.appendChild(anchor);
+    anchor.click();
+
+    // Clean up
+    document.body.removeChild(anchor);
+  };
 
   // carusal
   const settings = {
@@ -151,7 +166,7 @@ function Hero() {
                   onMouseLeave={textLeave}
                   className="font-extrabold font-['Montserrat'] md:text-[85px] text-[40px]"
                 >
-                  <AnimatedText text="I’Am Mohan, a"/>
+                  <AnimatedText text="I'Am Mohan, a"/>
                 </h1>
                 <h1
                   onMouseEnter={textEnter}
@@ -198,6 +213,7 @@ function Hero() {
                   Contact
                 </motion.button>
                 <motion.button
+                onClick={downloadFile}
                   onMouseEnter={textEnter}
                   onMouseLeave={textLeave}
                   whileHover={{ scale: 1.1 }}
