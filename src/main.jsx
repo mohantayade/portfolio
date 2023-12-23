@@ -11,7 +11,7 @@ import ProjectPage from './components/ProjectPage'
 
 const router = createBrowserRouter([
   {
-    path: '/',
+    path: 'portfolio/',
     element: <Layout/>,
     children:[
       {
